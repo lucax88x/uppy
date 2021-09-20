@@ -24,9 +24,10 @@
   "pre-commit": "lint:staged",
   "license": "MIT",
   "engines": {
-    "npm": "7.x",
-    "node": "^v14.17.0 || >=v16.0.0"
+    "node": "^v14.17.0 || >=v16.0.0",
+    "yarn": "3.0.0"
   },
+  "packageManager": "yarn@3.0.0",
   "workspaces": [
     "examples/*",
     "packages/@uppy/*",
