@@ -14,15 +14,15 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v2-beta
         with:
-          node-version: 14.x
+          node-version: 16.x
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: corepack yarn install --frozen-lockfile
       - name: Build Uppy
-        run: yarn run build
+        run: corepack yarn run build
       - name: Build website
-        run: yarn run web:build
+        run: corepack yarn run web:build
       - name: Prepare deployment
-        run: yarn run web:prepare-deploy --quiet
+        run: corepack yarn run web:prepare-deploy --quiet
         env:
           DEPLOY_DIR: ${{github.workspace}}/_deploy
       - name: Push to Github Pages
