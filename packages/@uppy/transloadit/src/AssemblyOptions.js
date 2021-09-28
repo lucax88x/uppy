@@ -29,13 +29,10 @@ function validateParams (params) {
  * compatible object.
  */
 function normalizeAssemblyOptions (file, assemblyOptions) {
-  if (Array.isArray(assemblyOptions.fields)) {
-    // eslint-disable-next-line no-param-reassign
-    assemblyOptions.fields = Object.fromEntries(assemblyOptions.fields.map((fieldName) => [fieldName, file.meta[fieldName]]))
-  } else if (assemblyOptions.fields == null) {
-    // eslint-disable-next-line no-param-reassign
-    assemblyOptions.fields = {}
-  }
+  // eslint-disable-next-line no-param-reassign
+  assemblyOptions.fields = Array.isArray(assemblyOptions.fields)
+    ? Object.fromEntries(assemblyOptions.fields.map((fieldName) => [fieldName, file.meta[fieldName]]))
+    : {}
 
   return assemblyOptions
 }
